@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>pages sample</title>
+<meta charset="utf-8">
+<script>
+window.onload = () => {
+    fetch('items.json')
+    .then(response => response.json())
+    .then((data) => {
+        data.items.forEach(item => {
+            const ul = document.getElementById('list');
+            const li = document.createElement('li');
+            li.innerText = `${item.item}, ${item.value}`;
+            ul.appendChild(li);
+        })
+    });
+}
+</script>
+</head>
+<body>
+<ul id="list"></ul>
+</body>
+</html>
